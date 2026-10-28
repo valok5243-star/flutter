@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: MyPage()));
+
+class MyPage extends StatefulWidget {
+  @override
+  State<MyPage> createState() => _MyPageState();
+}
+
+class _MyPageState extends State<MyPage> {
+  bool show = true;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: Center(child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AnimatedOpacity(
+          opacity: show ? 1 : 0,
+          duration: Duration(seconds: 1),
+          child: AnimatedScale(
+            scale: show ? 1 : 0.5,
+            duration: Duration(seconds: 1),
+            child: Icon(Icons.star, size: 80),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () => setState(() => show = !show),
+          child: Text('Animate'),
+        ),
+      ],
+    )),
+  );
+}

@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: MyPage()));
+
+class MyPage extends StatefulWidget {
+  @override
+  State<MyPage> createState() => _MyPageState();
+}
+
+class _MyPageState extends State<MyPage> {
+  bool change = false;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: Center(child: GestureDetector(
+      onTap: () => setState(() => change = !change),
+      child: AnimatedContainer(
+        duration: Duration(seconds: 1),
+        width: change ? 150 : 80,
+        height: change ? 150 : 80,
+        color: change ? Colors.red : Colors.blue,
+      ),
+    )),
+  );
+}

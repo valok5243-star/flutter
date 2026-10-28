@@ -1,0 +1,9 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: Scaffold(
+  body: Center(child: Text(
+    'Name: Ravi\nAge: 20\nSum: ${add(10, 20)}',
+  )),
+)));
+
+int add(int a, int b) => a + b;
